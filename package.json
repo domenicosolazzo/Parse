@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/domenicosolazzo/Parse/issues"
   },
-  "homepage": "https://github.com/domenicosolazzo/Parse"
+  "homepage": "https://github.com/domenicosolazzo/Parse",
+  "dependencies": {
+    "basic-auth": "^1.0.3",
+    "body-parser": "^1.13.2",
+    "compression": "^1.5.1",
+    "convict": "^0.8.0",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.1",
+    "serve-favicon": "^2.3.0"
+  }
 }
