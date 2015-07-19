@@ -1,0 +1,40 @@
+<script type="text/javascript">
+var validate = function validate(data){
+    if (!data) return false;
+
+    return true;
+};
+
+$("#send-notification-form").submit(function(){
+  event.preventDefault();
+
+  var data = $("#send-notification-form").serializeArray();
+  console.log(data);
+  if (!data ||
+    !validate(data)
+  ){
+    alert("Cannot send the notification. The title, message or url were invalid.");
+    return false;
+  }
+
+  Parse.Push.send({
+    channels: [ "global"],
+    data: {
+      alert: {
+        "title":"The Giants won against the Mets 2-3.",
+        "body":"This is the body"
+      },
+      "url": "http://www.google.com"
+    }
+  }, {
+    success: function() {
+      alert("Notification has been sent successfully.");
+      console.log("Success");
+    },
+    error: function(error) {
+      alert("Error sending the notification! " + JSON.stringify(error));
+      console.log("Error: ", error);
+    }
+  });
+});
+</script>
